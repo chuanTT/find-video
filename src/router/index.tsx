@@ -9,7 +9,7 @@ import VideoYoutubeShort from "~/pages/VideoYoutubeShort"
 
 export const routes: RouteObject[] = [
   {
-    // path: config.path.home,
+    path: config.path.home,
     element: (
       <DefaultLayout>
         <Outlet />
