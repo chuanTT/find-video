@@ -6,6 +6,7 @@ import config from "~/config"
 import { configHeaderLinkType } from "~/types"
 import AccordionWapper from "~/components/AccordionWapper"
 import StaticImages from "~/assets/images"
+import { InitPadding } from "~/common/function"
 
 const configLink: configHeaderLinkType[] = [
   {
@@ -78,7 +79,13 @@ const Header = () => {
               <div className="max-md:flex max-md:items-center max-md:justify-between max-md:px-5">
                 <div className="w-52 p-[10px]">
                   <NavLink to={config.path.home}>
-                    <img src={StaticImages.logo} alt="logo" />
+                    <img
+                      src={StaticImages.logo}
+                      alt="logo"
+                      onLoad={() => {
+                        InitPadding()
+                      }}
+                    />
                   </NavLink>
                 </div>
 

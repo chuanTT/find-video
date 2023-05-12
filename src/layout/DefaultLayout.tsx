@@ -6,6 +6,7 @@ import { defaultProps } from "~/types"
 import "react-toastify/dist/ReactToastify.css"
 import { useLocation, useNavigate } from "react-router-dom"
 import config from "~/config"
+import { InitPadding } from "~/common/function"
 
 const DefaultLayout: FC<defaultProps> = ({ children }) => {
   const navigate = useNavigate()
@@ -21,22 +22,7 @@ const DefaultLayout: FC<defaultProps> = ({ children }) => {
   }, [from])
 
   useEffect(() => {
-    const InitPadding = () => {
-      const widWindown = window.innerWidth
-      const header = document.getElementById("header")
-      const wapperContainer: HTMLDivElement | null = document.querySelector(".wapper-container")
-      if (header && wapperContainer) {
-        if (widWindown < 768) {
-          const { height: heightHeader } = header.getBoundingClientRect()
-          wapperContainer.style.marginTop = `${heightHeader + 30}px`
-        } else {
-          wapperContainer.removeAttribute("style")
-        }
-      }
-    }
-
     InitPadding()
-
     window.addEventListener("resize", InitPadding)
 
     return () => {

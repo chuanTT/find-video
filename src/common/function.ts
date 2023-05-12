@@ -143,6 +143,20 @@ const getBaseUrl = () => {
   return url
 }
 
+const InitPadding = () => {
+  const widWindown = window.innerWidth
+  const header = document.getElementById("header")
+  const wapperContainer: HTMLDivElement | null = document.querySelector(".wapper-container")
+  if (header && wapperContainer) {
+    if (widWindown < 768) {
+      const { height: heightHeader } = header.getBoundingClientRect()
+      wapperContainer.style.marginTop = `${heightHeader + 30}px`
+    } else {
+      wapperContainer.removeAttribute("style")
+    }
+  }
+}
+
 export {
   DownloadFile,
   checkVaidUrl,
@@ -158,5 +172,6 @@ export {
   requestAnimationFrameAccordion,
   incrementHeight,
   decrementHeight,
-  getBaseUrl
+  getBaseUrl,
+  InitPadding
 }
