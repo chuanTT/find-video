@@ -21,7 +21,7 @@ const config = {
     youtube: {
       url: "https://youtube-media-downloader.p.rapidapi.com/v2/video/details",
       host: "youtube-media-downloader.p.rapidapi.com",
-      domain: ["https://www.youtube.com/shorts/", "https://www.youtube.com/watch?v="]
+      domain: ["https://www.youtube.com/shorts/", "https://www.youtube.com/watch?v=", "https://youtube.com/shorts/"]
     }
   }
 }

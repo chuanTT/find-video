@@ -24,7 +24,11 @@ const DownloadFile = async ({ url, fileName }: { url: string; fileName?: string 
 
 const allowArrTiktok = ["^https://vt[.]tiktok[.]com/.+", "^https://www[.]tiktok[.]com/@.+/video/.+"]
 const allowArrFacebook = ["^https://www[.]facebook[.]com/.+/videos/.*", "https://www[.]facebook[.]com/reel/.*"]
-const allowArrYoutube = ["^https://www[.]youtube[.]com/watch[?]v=.{11}", "^https://www[.]youtube[.]com/shorts/.{11}"]
+const allowArrYoutube = [
+  "^https://www[.]youtube[.]com/watch[?]v=.{11}",
+  "^https://www[.]youtube[.]com/shorts/.{11}(/?.*)",
+  "^https://youtube[.]com/shorts/.{11}(/?.*)"
+]
 const allowArrInstagram = ["^https://www[.]instagram[.]com/reel/.{11}(/?.*)"]
 const allowArrUidFb = ["^https://www[.]facebook[.]com/profile[.]php[?]id=.*", "^https://www[.]facebook[.]com/.*"]
 
