@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-header.active > div {
+  background-color: #060f7c;
+}
+
+.nav-header.active > div > * {
+  color: white;
+}
+
+.ellipsis-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.accordion-content {
+  height: 0px;
+  overflow: hidden;
+}
+
