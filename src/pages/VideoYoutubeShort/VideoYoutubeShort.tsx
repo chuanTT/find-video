@@ -65,7 +65,7 @@ function VideoYoutubeShort() {
                                 alt={item?.channel?.name}
                               />
                             </div>
-                            <div className="w-[calc(100%_-_100px_*_2_+_10px)] max-sm:w-[calc(100%_-_60px_-_100px_-_16px)] overflow-hidden text-ellipsis">
+                            <div className="w-[calc(100%_-_100px)] max-sm:w-[calc(100%_-_60px)] overflow-hidden text-ellipsis">
                               <h4 className="text-xl font-medium mb-3 ellipsis-3 max-sm:text-base">{item?.title}</h4>
                               <span className="text-sm ellipsis-1">{item?.channel?.name}</span>
                             </div>
