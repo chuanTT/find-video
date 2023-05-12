@@ -18,8 +18,22 @@
   text-overflow: ellipsis;
 }
 
+.ellipsis-1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 640px) {
+  .ellipsis-3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+}
+
 .accordion-content {
   height: 0px;
   overflow: hidden;
 }
-

@@ -44,15 +44,18 @@ function VideoFacebookReel() {
                   {data &&
                     data?.map((item, index) => {
                       return (
-                        <div className="flex items-center bg-white rounded-lg p-2 pr-4 space-x-4 shadow-lg" key={index}>
-                          <div className="w-[100px] h-[100px] overflow-hidden flex-shrink-0">
+                        <div
+                          className="flex items-center bg-white rounded-lg p-2 pr-4 space-x-4 shadow-lg w-full"
+                          key={index}
+                        >
+                          <div className="w-[100px] h-[100px] overflow-hidden flex-shrink-0 max-sm:w-[60px] max-sm:h-[60px]">
                             <img className="w-full h-full rounded-lg" src={item?.thumbnail} alt="" />
                           </div>
-                          <div className="flex-1">
-                            <h4 className="text-xl font-medium mb-3 ellipsis-3">{item?.title}</h4>
+                          <div className="w-[calc(100%_-_100px_*_2_+_10px)] max-sm:w-[calc(100%_-_60px_-_100px_-_16px)] overflow-hidden text-ellipsis">
+                            <h4 className="text-xl font-medium mb-3 ellipsis-3 max-sm:text-base">{item?.title}</h4>
                           </div>
 
-                          <div>
+                          <div className="flex-shrink-0">
                             <button
                               onClick={() => {
                                 if (item?.links?.["Download High Quality"]) {
