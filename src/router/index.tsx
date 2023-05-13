@@ -1,6 +1,7 @@
 import { createBrowserRouter, Outlet, RouteObject } from "react-router-dom"
 import App from "~/App"
 import config from "~/config"
+import NotFound from "~/layout/404"
 import DefaultLayout from "~/layout/DefaultLayout"
 import FindUidFacebook from "~/pages/FindUidFacebook"
 import VideoFacebookReel from "~/pages/VideoFacebookReel"
@@ -10,6 +11,7 @@ import VideoYoutubeShort from "~/pages/VideoYoutubeShort"
 export const routes: RouteObject[] = [
   {
     path: config.path.home,
+    errorElement: <NotFound />,
     element: (
       <DefaultLayout>
         <Outlet />
