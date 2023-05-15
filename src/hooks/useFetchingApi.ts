@@ -96,14 +96,14 @@ const useFetchingApi = ({
               const result = await reponsive.json()
               const newResult = result?.data || result
 
-              if (newResult) {
+              if (newResult && !newResult?.errors) {
                 const newData = [...data, { result: newResult, key: link }]
                 typeof callBack === "function" && callBack(newResult)
                 setData(newData)
+                return
               }
-            } else {
-              typeof succesErorrFuc === "function" && succesErorrFuc()
             }
+            typeof succesErorrFuc === "function" && succesErorrFuc()
           } catch {
             typeof errorFuc === "function" && errorFuc()
           }
