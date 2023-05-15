@@ -1,7 +1,7 @@
 import { TypeToast } from "~/components/ToastCustom"
 import { requestAnimationFrameAccordionInterFace } from "~/types"
 
-const DownloadFile = async ({ url, fileName }: { url: string; fileName?: string }) => {
+const DownloadFile = async ({ url, fileName }: { url: string; fileName?: string | number }) => {
   if (url) {
     try {
       const response = await fetch(url)

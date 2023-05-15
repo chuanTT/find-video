@@ -2,7 +2,8 @@ import { FC, useState, useRef, Dispatch, SetStateAction } from "react"
 
 import { MsgType } from "~/common/function"
 import ToastCustom, { TypeToast } from "~/components/ToastCustom"
-import useFetchingApi, { dynamicData, useGetVideoFetchingProps } from "~/hooks/useFetchingApi"
+import useFetchingApi, { useGetVideoFetchingProps } from "~/hooks/useFetchingApi"
+import { dynamicData } from "~/types"
 
 export interface childrenToast {
   isPending?: boolean

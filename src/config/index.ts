@@ -4,7 +4,8 @@ const config = {
   path: router,
   linkApi: {
     tiktok: {
-      url: "https://tiktok-video-no-watermark2.p.rapidapi.com/",
+      // url: "https://tiktok-video-no-watermark2.p.rapidapi.com/",
+      url: "https://tiktok-download.onrender.com/api/v1/tiktok/tiktok-download",
       host: "tiktok-video-no-watermark2.p.rapidapi.com"
     },
     facebook: {

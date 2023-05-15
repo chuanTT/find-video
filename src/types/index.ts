@@ -123,3 +123,41 @@ export interface requestAnimationFrameAccordionInterFace {
   callBackDone?: () => void
   callProgress?: (process: number, element?: HTMLDivElement) => void
 }
+
+export interface awemeListTiktok {
+  aweme_id?: string | number
+  desc?: string
+  author?: {
+    uid?: string
+    nickname?: string
+    signature?: string
+    avatar_thumb?: {
+      uri?: string
+      url_list?: string[]
+      width?: number | string
+      height?: number | string
+    }
+    birthday?: string
+  }
+  video?: {
+    play_addr?: {
+      url_list?: string[]
+      url?: string
+    }
+    cover?: {
+      url_list?: string[]
+      url?: string
+    }
+  }
+}
+
+export interface dynamicData
+  extends awemeListTiktok,
+    apiYoutubeResult,
+    apiInstagramResult,
+    apiFacebookResult,
+    apiFacebookResultNew {}
+
+export interface apiTitokResultProps {
+  aweme_list?: awemeListTiktok[]
+}

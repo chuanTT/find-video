@@ -17,8 +17,8 @@ function App() {
       baseUrl={config.linkApi.tiktok.url}
       RapidAPIHost={config.linkApi.tiktok.host}
       objectQuery={{
-        url: link,
-        hd: 0
+        url: link
+        // hd: 0
       }}
     >
       {({ isPending, setIsPending, data, ValidToast }) => {
@@ -46,20 +46,21 @@ function App() {
                       return (
                         <div className="flex items-center bg-white rounded-lg p-2 pr-4 space-x-4 shadow-lg" key={index}>
                           <div className="w-[100px] h-[100px] overflow-hidden flex-shrink-0 max-sm:w-[60px] max-sm:h-[60px]">
-                            <img className="w-full h-full rounded-lg" src={item?.origin_cover} alt="" />
+                            <img className="w-full h-full rounded-lg" src={item?.video?.cover?.url} alt="" />
                           </div>
                           <div className="w-[calc(100%_-_100px_*_2_+_10px)] max-sm:w-[calc(100%_-_60px_-_100px_-_16px)] overflow-hidden text-ellipsis">
-                            <h4 className="text-xl font-medium mb-3 ellipsis-3 max-sm:text-base">{item?.title}</h4>
+                            <h4 className="text-xl font-medium mb-3 ellipsis-3 max-sm:text-base">{item?.desc}</h4>
                             <span className="text-sm ellipsis-1">{item?.author?.nickname}</span>
                           </div>
 
                           <div className="flex-shrink-0">
                             <button
                               onClick={() => {
-                                if (item?.play) {
+                                const url = item?.video?.play_addr?.url
+                                if (url) {
                                   DownloadFile({
-                                    url: item?.play,
-                                    fileName: item?.id
+                                    url: url,
+                                    fileName: item?.aweme_id
                                   })
                                 }
                               }}

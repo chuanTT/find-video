@@ -1,17 +1,10 @@
 import { useEffect, useState, useRef } from "react"
-import { apiFacebookResult, apiInstagramResult, apiTitokResult, apiYoutubeResult, apiFacebookResultNew } from "~/types"
+import { dynamicData } from "~/types"
 
 export enum methodFetch {
   POST = "POST",
   GET = "GET"
 }
-
-export interface dynamicData
-  extends apiTitokResult,
-    apiYoutubeResult,
-    apiInstagramResult,
-    apiFacebookResult,
-    apiFacebookResultNew {}
 
 export interface useGetVideoFetchingProps {
   link?: string
