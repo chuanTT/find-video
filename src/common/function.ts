@@ -1,20 +1,50 @@
 import { TypeToast } from "~/components/ToastCustom"
 import { requestAnimationFrameAccordionInterFace } from "~/types"
 
-const DownloadFile = async ({ url, fileName }: { url: string; fileName?: string | number }) => {
+const createHrefDownload = (href: string, fileName: string | number | undefined) => {
+  const link = document.createElement("a")
+  link.href = href
+  link.setAttribute("download", `${fileName || "video"}.mp4`)
+  link.setAttribute("rel", "nofollow")
+  link.setAttribute("role", "button")
+  link.setAttribute("aria-pressed", "true")
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+  URL.revokeObjectURL(href)
+}
+
+const DownloadFile = async ({
+  url,
+  fileName,
+  callBack
+}: {
+  url: string
+  fileName?: string | number
+  callBack?: (response: Response) => string
+}) => {
   if (url) {
     try {
       const response = await fetch(url)
       if (response.ok) {
-        const blob = await response.blob()
-        const blobUrl = window.URL.createObjectURL(blob)
-        const link = document.createElement("a")
-        link.href = blobUrl
-        link.setAttribute("download", `${fileName || "video"}.mp4`)
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-        URL.revokeObjectURL(blobUrl)
+        let str = ""
+        if (typeof callBack === "function") {
+          const data = await response.json()
+          const result = data?.data || data
+          str = callBack(result)
+        } else {
+          const blob = await response.blob()
+          str = window.URL.createObjectURL(blob)
+        }
+
+        createHrefDownload(str, fileName)
+        // const link = document.createElement("a")
+        // link.href = blobUrl
+        // link.setAttribute("download", `${fileName || "video"}.mp4`)
+        // document.body.appendChild(link)
+        // link.click()
+        // document.body.removeChild(link)
+        // URL.revokeObjectURL(blobUrl)
       }
     } catch {
       window.open(url, "_blank")

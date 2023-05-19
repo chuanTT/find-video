@@ -61,6 +61,7 @@ export interface apiTitokResult {
 export interface apiYoutubeResult {
   hd?: string
   title?: string
+  vid?: string
   channel?: {
     name?: string
   }
@@ -151,12 +152,28 @@ export interface awemeListTiktok {
   }
 }
 
+export interface instagramResultNew {
+  id?: string
+  code?: string
+  text?: string
+  user?: {
+    pk_id?: string
+    full_name?: string
+    profile_pic_url?: string
+  }
+  image_versions2?: {
+    igtv_first_frame?: { url?: string }
+    first_frame?: { url?: string }
+  }
+  video_versions?: { url?: string }
+}
 export interface dynamicData
   extends awemeListTiktok,
     apiYoutubeResult,
     apiInstagramResult,
     apiFacebookResult,
-    apiFacebookResultNew {}
+    apiFacebookResultNew,
+    instagramResultNew {}
 
 export interface apiTitokResultProps {
   aweme_list?: awemeListTiktok[]

@@ -40,17 +40,18 @@ const useFetchingUidFB = ({ link, callBack, baseUrl, errorFuc, succesErorrFuc, f
 
       if (!findUidData) {
         const findUid = async () => {
-          let url = baseUrl ?? "https://fbuid.mktsoftware.net/api/v1/fbprofile"
+          let url = baseUrl ?? "https://tiktok-download.onrender.com/api/v1/facebook/facebook-uid"
           url += `?url=${link}`
 
           try {
             const reponsive = await fetch(url)
             if (reponsive.ok) {
               const result = await reponsive.json()
+              const uid = result?.data?.uid
 
-              if (result?.uid) {
-                setData((prev) => [...prev, { link, result: result?.uid }])
-                typeof callBack === "function" && callBack(result?.uid)
+              if (uid) {
+                setData((prev) => [...prev, { link, result: uid }])
+                typeof callBack === "function" && callBack(uid)
               }
             } else {
               typeof succesErorrFuc === "function" && succesErorrFuc()

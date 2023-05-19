@@ -16,6 +16,7 @@ function VideoYoutubeShort() {
       baseUrl={config.linkApi.youtube.url}
       RapidAPIHost={config.linkApi.youtube.host}
       objectQuery={{
+        // url: link
         videoId: link,
         subtitles: false,
         related: false
@@ -39,6 +40,8 @@ function VideoYoutubeShort() {
                       setLink(valueStr)
                       setIsPending(true)
                     }
+                    // setLink(str)
+                    // setIsPending(true)
                   },
                   callBackError: ValidToast,
                   allowArr: allowArrYoutube
@@ -50,9 +53,10 @@ function VideoYoutubeShort() {
                   {data &&
                     data?.map((item, index) => {
                       const srcThumb =
-                        item?.thumbnails &&
-                        Array.isArray(item?.thumbnails) &&
-                        item?.thumbnails[item?.thumbnails?.length - 1]?.url
+                        (item?.thumbnails &&
+                          Array.isArray(item?.thumbnails) &&
+                          item?.thumbnails[item?.thumbnails?.length - 1]?.url) ||
+                        item?.thumbnail
                       const videos = active ? item?.videos?.items : item?.audios?.items
 
                       return (
@@ -95,7 +99,7 @@ function VideoYoutubeShort() {
 
                             <div>
                               {videos &&
-                                videos?.map((item, index) => {
+                                videos?.map((itemChild, index) => {
                                   const maxLength = (videos && videos.length) || 1
                                   return (
                                     <div
@@ -107,18 +111,25 @@ function VideoYoutubeShort() {
                                       }`}
                                     >
                                       <span className="flex justify-center items-center py-2 !border-r-0">{`${
-                                        item?.quality || ""
-                                      } (${item?.extension})`}</span>
+                                        itemChild?.quality || ""
+                                      } (${itemChild?.extension})`}</span>
                                       <span className="flex justify-center items-center py-2 !border-r-0">
-                                        {item?.sizeText}
+                                        {itemChild?.sizeText}
                                       </span>
                                       <div className="flex justify-center items-center py-2">
                                         <button
                                           onClick={() => {
-                                            if (item?.url) {
+                                            if (itemChild?.url) {
+                                              // DownloadFile({
+                                              //   url: `${config.linkApi.youtube.urlDownload}?vid=${item?.vid}&k=${itemChild?.url}`,
+                                              //   fileName: `${Date.now().toString()}-${itemChild?.quality}`,
+                                              //   callBack: (data) => {
+                                              //     return data?.url ?? ""
+                                              //   }
+                                              // })
                                               DownloadFile({
-                                                url: item?.url,
-                                                fileName: `${Date.now().toString()}-${item?.quality}`
+                                                url: itemChild?.url,
+                                                fileName: `${Date.now().toString()}-${itemChild?.quality}`
                                               })
                                             }
                                           }}
