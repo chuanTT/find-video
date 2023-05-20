@@ -125,11 +125,14 @@ function VideoYoutubeShort() {
                                               //   fileName: `${Date.now().toString()}-${itemChild?.quality}`,
                                               //   callBack: (data) => {
                                               //     return data?.url ?? ""
-                                              //   }
+                                              //   },
+                                              //   extension: itemChild?.extension
                                               // })
+
                                               DownloadFile({
                                                 url: itemChild?.url,
-                                                fileName: `${Date.now().toString()}-${itemChild?.quality}`
+                                                fileName: `${Date.now().toString()}-${itemChild?.quality}`,
+                                                extension: itemChild?.extension
                                               })
                                             }
                                           }}

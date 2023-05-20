@@ -1,10 +1,10 @@
 import { TypeToast } from "~/components/ToastCustom"
 import { requestAnimationFrameAccordionInterFace } from "~/types"
 
-const createHrefDownload = (href: string, fileName: string | number | undefined) => {
+const createHrefDownload = (href: string, fileName: string | number | undefined, extension: string | undefined) => {
   const link = document.createElement("a")
   link.href = href
-  link.setAttribute("download", `${fileName || "video"}.mp4`)
+  link.setAttribute("download", `${fileName || "video"}.${extension ?? "mp4"}`)
   link.setAttribute("rel", "nofollow")
   link.setAttribute("role", "button")
   link.setAttribute("aria-pressed", "true")
@@ -17,11 +17,13 @@ const createHrefDownload = (href: string, fileName: string | number | undefined)
 const DownloadFile = async ({
   url,
   fileName,
-  callBack
+  callBack,
+  extension
 }: {
   url: string
   fileName?: string | number
   callBack?: (response: Response) => string
+  extension?: string
 }) => {
   if (url) {
     try {
@@ -37,14 +39,7 @@ const DownloadFile = async ({
           str = window.URL.createObjectURL(blob)
         }
 
-        createHrefDownload(str, fileName)
-        // const link = document.createElement("a")
-        // link.href = blobUrl
-        // link.setAttribute("download", `${fileName || "video"}.mp4`)
-        // document.body.appendChild(link)
-        // link.click()
-        // document.body.removeChild(link)
-        // URL.revokeObjectURL(blobUrl)
+        createHrefDownload(str, fileName, extension)
       }
     } catch {
       window.open(url, "_blank")
@@ -207,5 +202,6 @@ export {
   incrementHeight,
   decrementHeight,
   getBaseUrl,
-  InitPadding
+  InitPadding,
+  createHrefDownload
 }
