@@ -16,7 +16,8 @@ function VideoInstagramReel() {
       baseUrl={config.linkApi.instagram.url}
       RapidAPIHost={config.linkApi.instagram.host}
       objectQuery={{
-        url_username: link
+        // url_username: link
+        url: link
       }}
     >
       {({ isPending, setIsPending, ValidToast, data }) => {

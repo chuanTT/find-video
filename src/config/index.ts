@@ -15,11 +15,13 @@ const config = {
       host: "facebook-reel-and-video-downloader.p.rapidapi.com"
     },
     instagram: {
-      url: "https://instagram-downloader15.p.rapidapi.com/media",
+      // url: "https://instagram-downloader15.p.rapidapi.com/media",
+      url: "https://tiktok-download.onrender.com/api/v1/instagram/instagram-download",
       host: "instagram-downloader15.p.rapidapi.com"
     },
     youtube: {
       url: "https://tiktok-download.onrender.com/api/v1/youtube/youtube-download",
+      // url: "http://localhost:3001/api/v1/youtube/youtube-download",
       // url: "https://youtube-media-downloader.p.rapidapi.com/v2/video/details",
       host: "youtube-media-downloader.p.rapidapi.com",
       // urlDownload: "https://tiktok-download.onrender.com/api/v1/youtube/youtube-download-quality",

@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { HiCheckCircle } from "react-icons/hi"
-
 import HeadingTitle from "~/layout/HeadingTitle"
 import { DownloadFile, SubmitCheckError } from "./common/function"
 import config from "./config"

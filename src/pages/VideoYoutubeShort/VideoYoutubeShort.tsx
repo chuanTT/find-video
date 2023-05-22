@@ -16,10 +16,10 @@ function VideoYoutubeShort() {
       baseUrl={config.linkApi.youtube.url}
       RapidAPIHost={config.linkApi.youtube.host}
       objectQuery={{
-        // url: link
-        videoId: link,
-        subtitles: false,
-        related: false
+        url: link
+        // videoId: link,
+        // subtitles: false,
+        // related: false
       }}
     >
       {({ isPending, setIsPending, ValidToast, data }) => {
@@ -35,13 +35,13 @@ function VideoYoutubeShort() {
                 SubmitCheckError({
                   link: str,
                   callBackSucc: () => {
-                    const valueStr = subtringDomain(config.linkApi.youtube.domain, str)
-                    if (valueStr) {
-                      setLink(valueStr)
-                      setIsPending(true)
-                    }
-                    // setLink(str)
-                    // setIsPending(true)
+                    // const valueStr = subtringDomain(config.linkApi.youtube.domain, str)
+                    // if (valueStr) {
+                    //   setLink(valueStr)
+                    //   setIsPending(true)
+                    // }
+                    setLink(str)
+                    setIsPending(true)
                   },
                   callBackError: ValidToast,
                   allowArr: allowArrYoutube
