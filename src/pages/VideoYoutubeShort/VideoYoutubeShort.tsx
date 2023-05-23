@@ -1,6 +1,6 @@
 import HeadingTitle from "~/layout/HeadingTitle"
 import { useState, Fragment } from "react"
-import { DownloadFile, SubmitCheckError, allowArrYoutube, subtringDomain } from "~/common/function"
+import { DownloadFile, SubmitCheckError, allowArrYoutube } from "~/common/function"
 import LayoutToastSubmit from "~/layout/LayoutToastSubmit"
 import config from "~/config"
 import { NavLink } from "react-router-dom"
