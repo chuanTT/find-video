@@ -94,13 +94,15 @@ const useFetchingApi = ({
             const reponsive = await fetch(url, options)
             if (reponsive.ok) {
               const result = await reponsive.json()
-              const newResult = result?.data || result
+              if (result?.code === 200) {
+                const newResult = result?.data || result
 
-              if (newResult && !newResult?.errors) {
-                const newData = [...data, { result: newResult, key: link }]
-                typeof callBack === "function" && callBack(newResult)
-                setData(newData)
-                return
+                if (newResult && !newResult?.errors) {
+                  const newData = [...data, { result: newResult, key: link }]
+                  typeof callBack === "function" && callBack(newResult)
+                  setData(newData)
+                  return
+                }
               }
             }
             typeof succesErorrFuc === "function" && succesErorrFuc()

@@ -49,7 +49,7 @@ function VideoYoutubeShort() {
               }}
             >
               {data && Array.isArray(data) && data.length > 0 && (
-                <div className="mb-9 mx-auto rounded-lg">
+                <div className="mt-9 mx-auto rounded-lg">
                   {data &&
                     data?.map((item, index) => {
                       const srcThumb =
@@ -64,7 +64,7 @@ function VideoYoutubeShort() {
                           <div className="flex items-center bg-white border rounded-lg p-2 pr-4 space-x-4 shadow-lg">
                             <div className="w-[100px] h-[100px] overflow-hidden flex-shrink-0 max-sm:w-[60px] max-sm:h-[60px]">
                               <img
-                                className="w-full h-full rounded-lg"
+                                className="w-full h-full rounded-lg object-cover"
                                 src={srcThumb || StaticImages.logo}
                                 alt={item?.channel?.name}
                               />
@@ -113,6 +113,20 @@ function VideoYoutubeShort() {
                                       <span className="flex justify-center items-center py-2 !border-r-0">{`${
                                         itemChild?.quality || ""
                                       } (${itemChild?.extension})`}</span>
+
+                                      {itemChild?.hasVideo && (
+                                        <span className="flex justify-center items-center py-2 !border-r-0">
+                                          Âm thanh{" "}
+                                          <span
+                                            className={`font-medium mx-1 ${
+                                              itemChild?.hasAudio ? "text-green-500" : "text-red-500"
+                                            }`}
+                                          >
+                                            ( {itemChild?.hasAudio ? "có" : "không"} )
+                                          </span>
+                                        </span>
+                                      )}
+
                                       <span className="flex justify-center items-center py-2 !border-r-0">
                                         {itemChild?.sizeText}
                                       </span>

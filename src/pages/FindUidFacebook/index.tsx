@@ -88,7 +88,7 @@ const FindUidFacebook = () => {
         }}
       />
 
-      <div className="max-md:w-[calc(100%_-_10px_*_2)] max-lg:w-[80%] lg:w-[60%] max-md:mx-[10px] mx-auto mb-36 mt-11 space-y-9">
+      <div className="max-md:w-[calc(100%_-_10px_*_2)] max-lg:w-[80%] lg:w-[60%] max-md:mx-[10px] mx-auto mb-36 mt-9 space-y-9">
         <div className="shadow-2xl bg-white p-5 border space-y-3">
           <span className="block font-medium text-lg">UID/ ID là gì?</span>
           <p className="!mb-10">

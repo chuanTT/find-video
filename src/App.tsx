@@ -39,13 +39,17 @@ function App() {
               }}
             >
               {data && Array.isArray(data) && data.length > 0 && (
-                <div className="mb-9 border mx-auto rounded-lg">
+                <div className="mt-9 border mx-auto rounded-lg">
                   {data &&
                     data?.map((item, index) => {
                       return (
                         <div className="flex items-center bg-white rounded-lg p-2 pr-4 space-x-4 shadow-lg" key={index}>
                           <div className="w-[100px] h-[100px] overflow-hidden flex-shrink-0 max-sm:w-[60px] max-sm:h-[60px]">
-                            <img className="w-full h-full rounded-lg" src={item?.video?.cover?.url} alt="" />
+                            <img
+                              className="w-full h-full rounded-lg object-cover"
+                              src={item?.video?.cover?.url}
+                              alt=""
+                            />
                           </div>
                           <div className="w-[calc(100%_-_100px_*_2_+_10px)] max-sm:w-[calc(100%_-_60px_-_100px_-_16px)] overflow-hidden text-ellipsis">
                             <h4 className="text-xl font-medium mb-3 ellipsis-3 max-sm:text-base">{item?.desc}</h4>
@@ -75,7 +79,7 @@ function App() {
               )}
             </HeadingTitle>
 
-            <div className="shadow-2xl border bg-white p-5 max-md:w-[calc(100%_-_10px_*_2)] max-lg:w-[80%] lg:w-[60%] max-md:mx-[10px] mx-auto mb-36">
+            <div className="shadow-2xl mt-11 border bg-white p-5 max-md:w-[calc(100%_-_10px_*_2)] max-lg:w-[80%] lg:w-[60%] max-md:mx-[10px] mx-auto mb-36">
               <h2 className="text-2xl font-semibold text-[#093DAA]">
                 Cách tải video Tiktok không Logo trên điện thoại (no watermark)
               </h2>

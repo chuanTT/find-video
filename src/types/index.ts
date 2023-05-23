@@ -58,6 +58,15 @@ export interface apiTitokResult {
   }
 }
 
+export interface itemRes {
+  url?: string
+  quality?: string
+  extension?: string
+  sizeText?: string
+  hasAudio?: boolean
+  hasVideo?: boolean
+}
+
 export interface apiYoutubeResult {
   hd?: string
   title?: string
@@ -66,14 +75,7 @@ export interface apiYoutubeResult {
     name?: string
   }
   audios?: {
-    items?: [
-      {
-        url?: string
-        quality?: string
-        extension?: string
-        sizeText?: string
-      }
-    ]
+    items?: itemRes[]
   }
   thumbnails?: [
     {
@@ -81,14 +83,7 @@ export interface apiYoutubeResult {
     }
   ]
   videos?: {
-    items?: [
-      {
-        url?: string
-        quality?: string
-        extension?: string
-        sizeText?: string
-      }
-    ]
+    items?: itemRes[]
   }
 }
 

@@ -73,7 +73,7 @@ const HeadingTile: FC<ConfigHeadingTile> = ({
             {note}
           </span>
         )}
-
+        {/* 
         <div className="flex justify-center mt-5 mb-16">
           <iframe
             title="reCAPTCHA"
@@ -86,7 +86,7 @@ const HeadingTile: FC<ConfigHeadingTile> = ({
             scrolling="no"
             sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"
           ></iframe>
-        </div>
+        </div> */}
 
         {children}
 

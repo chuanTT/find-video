@@ -42,7 +42,7 @@ function VideoInstagramReel() {
               }}
             >
               {data && Array.isArray(data) && data.length > 0 && (
-                <div className="mb-9 border mx-auto rounded-lg">
+                <div className="my-9 border mx-auto rounded-lg">
                   {data &&
                     data?.map((item, index) => {
                       const media: mediaConfigInstagram = (item?.media &&
@@ -51,13 +51,11 @@ function VideoInstagramReel() {
                       return (
                         <div className="flex items-center bg-white rounded-lg p-2 pr-4 space-x-4 shadow-lg" key={index}>
                           <div className="w-[100px] h-[100px] overflow-hidden flex-shrink-0 max-sm:w-[60px] max-sm:h-[60px]">
-                            <img className="w-full h-full rounded-lg" src={item?.thumbnail} alt="" />
+                            <img className="w-full h-full rounded-lg object-cover" src={media?.thumbnail} alt="" />
                           </div>
                           <div className="w-[calc(100%_-_100px_*_2_+_10px)] max-sm:w-[calc(100%_-_60px_-_100px_-_16px)] overflow-hidden text-ellipsis">
-                            <h4 className="text-xl font-medium mb-3 ellipsis-3 max-sm:text-base">
-                              {item?.owner?.full_name}
-                            </h4>
-                            <span className="text-sm ellipsis-1">{item?.owner?.username}</span>
+                            <h4 className="text-xl font-medium mb-3 ellipsis-3 max-sm:text-base">{item?.text}</h4>
+                            <span className="text-sm ellipsis-1">{item?.owner?.full_name}</span>
                           </div>
 
                           <div className="flex-shrink-0">
