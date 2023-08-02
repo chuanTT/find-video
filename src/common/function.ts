@@ -54,7 +54,10 @@ const allowArrYoutube = [
   "^https://www[.]youtube[.]com/shorts/.{11}(/?.*)",
   "^https://youtube[.]com/shorts/.{11}(/?.*)"
 ]
-const allowArrInstagram = ["^https://www[.]instagram[.]com/reel/.{11}(/?.*)"]
+const allowArrInstagram = [
+  "^https://www[.]instagram[.]com/reel/.{11}(/?.*)",
+  "^https://www[.]instagram[.]com/p/.{11}(/?.*)"
+]
 const allowArrUidFb = ["^https://www[.]facebook[.]com/profile[.]php[?]id=.*", "^https://www[.]facebook[.]com/.*"]
 
 const checkOneRegex = (link: string, regex: string) => {
