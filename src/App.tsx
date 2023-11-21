@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { HiCheckCircle } from "react-icons/hi"
 import HeadingTitle from "~/layout/HeadingTitle"
-import { DownloadFile, SubmitCheckError } from "./common/function"
+import { SubmitCheckError } from "./common/function"
 import config from "./config"
 import LayoutToastSubmit from "./layout/LayoutToastSubmit"
 import Accordion from "./components/Accordion"
 import { QuestionTiktok } from "./data"
+import { Link } from "react-router-dom"
 
 function App() {
   const [link, setLink] = useState("")
@@ -57,20 +58,12 @@ function App() {
                           </div>
 
                           <div className="flex-shrink-0">
-                            <button
-                              onClick={() => {
-                                const url = item?.video?.play_addr?.url
-                                if (url) {
-                                  DownloadFile({
-                                    url: url,
-                                    fileName: item?.aweme_id
-                                  })
-                                }
-                              }}
+                            <Link
+                              to={item?.video?.play_addr?.download_url ?? ""}
                               className="btn bg-green-500 py-2 px-6 cursor-pointer rounded-md text-sm font-medium text-white"
                             >
                               Tải về
-                            </button>
+                            </Link>
                           </div>
                         </div>
                       )

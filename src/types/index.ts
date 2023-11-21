@@ -65,6 +65,7 @@ export interface itemRes {
   sizeText?: string
   hasAudio?: boolean
   hasVideo?: boolean
+  download_url?: string
 }
 
 export interface apiYoutubeResult {
@@ -90,6 +91,7 @@ export interface apiYoutubeResult {
 export interface mediaConfigInstagram {
   url?: string
   thumbnail?: string
+  download_url?: string
 }
 
 export interface apiInstagramResult {
@@ -97,7 +99,7 @@ export interface apiInstagramResult {
     username?: string
     full_name?: string
   }
-  media?: mediaConfigInstagram[]
+  media?: mediaConfigInstagram
 }
 
 export interface apiFacebookResult {
@@ -111,6 +113,7 @@ export interface apiFacebookResultNew {
   thumbnail?: string
   links?: {
     "Download High Quality"?: string
+    download_url?: string
   }
 }
 
@@ -139,6 +142,7 @@ export interface awemeListTiktok {
     play_addr?: {
       url_list?: string[]
       url?: string
+      download_url?: string
     }
     cover?: {
       url_list?: string[]

@@ -3,7 +3,7 @@ import { useState } from "react"
 import LayoutToastSubmit from "~/layout/LayoutToastSubmit"
 import config from "~/config"
 import { mediaConfigInstagram } from "~/types"
-import { DownloadFile, SubmitCheckError, allowArrInstagram } from "~/common/function"
+import { SubmitCheckError, allowArrInstagram } from "~/common/function"
 import StaticImages from "~/assets/images"
 import { NavLink } from "react-router-dom"
 
@@ -16,7 +16,6 @@ function VideoInstagramReel() {
       baseUrl={config.linkApi.instagram.url}
       RapidAPIHost={config.linkApi.instagram.host}
       objectQuery={{
-        // url_username: link
         url: link
       }}
     >
@@ -45,9 +44,7 @@ function VideoInstagramReel() {
                 <div className="my-9 border mx-auto rounded-lg">
                   {data &&
                     data?.map((item, index) => {
-                      const media: mediaConfigInstagram = (item?.media &&
-                        Array.isArray(item?.media) &&
-                        item?.media[item?.media?.length - 1]) || { url: "", thumbnail: "" }
+                      const media: mediaConfigInstagram = item?.media || { url: "", thumbnail: "" }
                       return (
                         <div className="flex items-center bg-white rounded-lg p-2 pr-4 space-x-4 shadow-lg" key={index}>
                           <div className="w-[100px] h-[100px] overflow-hidden flex-shrink-0 max-sm:w-[60px] max-sm:h-[60px]">
@@ -59,19 +56,12 @@ function VideoInstagramReel() {
                           </div>
 
                           <div className="flex-shrink-0">
-                            <button
-                              onClick={() => {
-                                if (media?.url) {
-                                  DownloadFile({
-                                    url: media?.url,
-                                    fileName: Date.now().toString()
-                                  })
-                                }
-                              }}
+                            <NavLink
+                              to={media?.download_url ?? ""}
                               className="btn bg-green-500 py-2 px-6 cursor-pointer rounded-md text-sm font-medium text-white"
                             >
                               Tải về
-                            </button>
+                            </NavLink>
                           </div>
                         </div>
                       )

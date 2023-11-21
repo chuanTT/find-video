@@ -1,6 +1,6 @@
 import { useState } from "react"
 import HeadingTitle from "~/layout/HeadingTitle"
-import { DownloadFile, SubmitCheckError, allowArrFacebook } from "~/common/function"
+import { SubmitCheckError, allowArrFacebook } from "~/common/function"
 import LayoutToastSubmit from "~/layout/LayoutToastSubmit"
 import config from "~/config"
 import StaticImages from "~/assets/images"
@@ -56,19 +56,12 @@ function VideoFacebookReel() {
                           </div>
 
                           <div className="flex-shrink-0">
-                            <button
-                              onClick={() => {
-                                if (item?.links?.["Download High Quality"]) {
-                                  DownloadFile({
-                                    url: item?.links?.["Download High Quality"],
-                                    fileName: Date.now().toString()
-                                  })
-                                }
-                              }}
+                            <NavLink
+                              to={item?.links?.download_url ?? ""}
                               className="btn bg-green-500 py-2 px-6 cursor-pointer rounded-md text-sm font-medium text-white"
                             >
                               Tải về
-                            </button>
+                            </NavLink>
                           </div>
                         </div>
                       )

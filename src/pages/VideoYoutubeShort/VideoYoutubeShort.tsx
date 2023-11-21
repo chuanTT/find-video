@@ -1,6 +1,6 @@
 import HeadingTitle from "~/layout/HeadingTitle"
 import { useState, Fragment } from "react"
-import { DownloadFile, SubmitCheckError, allowArrYoutube } from "~/common/function"
+import { SubmitCheckError, allowArrYoutube } from "~/common/function"
 import LayoutToastSubmit from "~/layout/LayoutToastSubmit"
 import config from "~/config"
 import { NavLink } from "react-router-dom"
@@ -17,9 +17,6 @@ function VideoYoutubeShort() {
       RapidAPIHost={config.linkApi.youtube.host}
       objectQuery={{
         url: link
-        // videoId: link,
-        // subtitles: false,
-        // related: false
       }}
     >
       {({ isPending, setIsPending, ValidToast, data }) => {
@@ -35,11 +32,6 @@ function VideoYoutubeShort() {
                 SubmitCheckError({
                   link: str,
                   callBackSucc: () => {
-                    // const valueStr = subtringDomain(config.linkApi.youtube.domain, str)
-                    // if (valueStr) {
-                    //   setLink(valueStr)
-                    //   setIsPending(true)
-                    // }
                     setLink(str)
                     setIsPending(true)
                   },
@@ -131,29 +123,12 @@ function VideoYoutubeShort() {
                                         {itemChild?.sizeText}
                                       </span>
                                       <div className="flex justify-center items-center py-2">
-                                        <button
-                                          onClick={() => {
-                                            if (itemChild?.url) {
-                                              // DownloadFile({
-                                              //   url: `${config.linkApi.youtube.urlDownload}?vid=${item?.vid}&k=${itemChild?.url}`,
-                                              //   fileName: `${Date.now().toString()}-${itemChild?.quality}`,
-                                              //   callBack: (data) => {
-                                              //     return data?.url ?? ""
-                                              //   },
-                                              //   extension: itemChild?.extension
-                                              // })
-
-                                              DownloadFile({
-                                                url: itemChild?.url,
-                                                fileName: `${Date.now().toString()}-${itemChild?.quality}`,
-                                                extension: itemChild?.extension
-                                              })
-                                            }
-                                          }}
+                                        <NavLink
+                                          to={itemChild.download_url ?? ""}
                                           className="btn bg-green-500 py-2 px-6 cursor-pointer rounded-md text-sm font-medium text-white"
                                         >
                                           Tải về
-                                        </button>
+                                        </NavLink>
                                       </div>
                                     </div>
                                   )
